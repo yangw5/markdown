@@ -1,5 +1,6 @@
-# es6
-## 新增数据结构
+## es6
+
+### 新增数据结构
 
 ### 块级作用域 let const
 
@@ -92,7 +93,7 @@
 
 * for-of循环不支持普通对象，但如果你想迭代一个对象的属性，你可以用for-in循环（这也是它的本职工作）或内建的Object.keys()方法：
 ----
-* Generator 生成器
+### Generator 生成器
 
   1. let f1=function *()
   2. yield
@@ -106,7 +107,7 @@
 
     
 ----
-* promise
+### promise
 
   1. promise对象是一个构造函数
 
@@ -120,7 +121,7 @@
   
   1. promise实例生成以后，可以用then方法分别指定resolved状态和rejected状态的回调函数，then可以接受2个函数作为参数，第一个回调函数是promise对象的状态变为resolved时调用，第二个回调函数是promise对象的状态变为rejected时调用，其中，第二个函数是可选的，不一定要提供，这两个函数都接受promise对象传出的值作为参数；
 
-  1. then方法返回的是一个新的Promise实例，then方法是定义在原型对象Promise.prototype上的。它的作用是为 Promise 实例添加状态改变时的回调函数
+  1. then方法返回的是一个新的Promise实例，then方法是定义在原型对象Promise.prototype上的。它的作用是为 Promise 实例添加状态改变时的回调函数，then内函数的参数可以接收resolve或者rejected函数的返回值。
 
           var getJSON = function (url) {
           var promise = new Promise( function(resolve,reject ) 
@@ -178,7 +179,9 @@
 
   async 函数返回的是一个promise 对象
 
-  await 关键字只能放到async 函数里面,会拿到promise resolve 的值并进行返回，然后继续向下执行。
+  await 关键字只能放到async 函数里面,会拿到promise resolve 的值并进行返回，然后继续向下执行。类似于promise .then()替换为await
+
+  错误处理 通过 try...catch进行异常的抛出
 
     // 2s 之后返回双倍的值
     function doubleAfter2seconds(num) {
@@ -192,6 +195,8 @@
     let result = await doubleAfter2seconds(30);
     console.log(result);
     }
+
+
 
 ---
 ### class
